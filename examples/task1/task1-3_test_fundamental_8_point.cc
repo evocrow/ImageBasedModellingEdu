@@ -72,17 +72,17 @@ FundamentalMatrix fundamental_8_point(math::Matrix<double, 3, 8> const &points1,
     math::Matrix<double, 8, 9> A;
     for (int i = 0; i < 8; i++)
     {
-        math::Vec3d u = points1.col(i);
-        math::Vec3d v = points2.col(i);
+        math::Vec3d x1 = points1.col(i);
+        math::Vec3d x2 = points2.col(i);
 
-        A(i, 0) = u[0] * v[0];
-        A(i, 1) = u[1] * v[0];
-        A(i, 2) = v[0];
-        A(i, 3) = u[0] * v[1];
-        A(i, 4) = u[1] * v[1];
-        A(i, 5) = v[1];
-        A(i, 6) = u[0];
-        A(i, 7) = u[1];
+        A(i, 0) = x1[0] * x2[0];
+        A(i, 1) = x1[1] * x2[0];
+        A(i, 2) = x2[0];
+        A(i, 3) = x1[0] * x2[1];
+        A(i, 4) = x1[1] * x2[1];
+        A(i, 5) = x2[1];
+        A(i, 6) = x1[0];
+        A(i, 7) = x1[1];
         A(i, 8) = 1.0;
     }
 

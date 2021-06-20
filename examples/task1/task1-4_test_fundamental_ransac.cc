@@ -7,6 +7,7 @@
  * of the BSD 3-Clause license. See the LICENSE.txt file for details.
  */
 
+#include <cassert>
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -206,7 +207,7 @@ int main(int argc, char *argv[])
 
     /** 加载归一化后的匹配对 */
     sfm::Correspondences2D2D corr_all;
-    std::ifstream in("./examples/task1/correspondences.txt");
+    std::ifstream in("/home/wanglx/repository/ImageBasedModellingEdu/examples/task1/correspondences.txt");
     assert(in.is_open());
 
     std::string line, word;
