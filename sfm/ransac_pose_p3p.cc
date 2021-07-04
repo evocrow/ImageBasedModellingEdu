@@ -37,7 +37,7 @@ RansacPoseP3P::estimate (Correspondences2D3D const& corresp,
 
     /* Pre-compute inverse K matrix to compute directions from corresp. */
     math::Matrix<double, 3, 3> inv_k_matrix = math::matrix_inverse(k_matrix);
-    std::atomic<int> num_iterations;
+    std::atomic<int> num_iterations(0);
 
 #pragma omp parallel
     {
@@ -47,8 +47,8 @@ RansacPoseP3P::estimate (Correspondences2D3D const& corresp,
         for (int i = 0; i < this->opts.max_iterations; ++i)
         {
             int iteration = i;
-            if (this->opts.verbose_output)
-                iteration = num_iterations++;
+            // if (this->opts.verbose_output)
+            //     iteration = num_iterations++;
 
             /* Compute up to four poses [R|t] using P3P algorithm. */
             PutativePoses poses;
